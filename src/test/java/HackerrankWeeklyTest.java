@@ -52,7 +52,7 @@ public class HackerrankWeeklyTest {
 
     @Test
     public void findingZigZagSequence(){
-        ZigZagSequence.findZigZagSequence(new int[]{2,3,5,1,4} , 5);
+        ZigZagSequence.findZigZagSequence(new int[]{2,3,5,1,4} , 2);
     }
 
     @Test

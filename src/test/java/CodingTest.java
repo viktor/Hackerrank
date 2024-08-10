@@ -46,4 +46,39 @@ public class CodingTest {
         System.out.printf(msg , args);
     }
 
+
+    @Test
+    void sumAfterElement(){
+        ArrayList<Integer> input = new ArrayList<>(Arrays.asList(7, 9, 5, 3, 1, 0));
+        ArrayList<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < input.size(); i++) {
+            Integer n = input.get(i);
+            Optional<Integer> sumOpt = input.subList(i+1, input.size()).stream().reduce(Integer::sum);
+
+            if(sumOpt.isPresent() && n > sumOpt.get())
+                result.add(n);
+        }
+
+        print(result.toString());
+    }
+
+    @Test
+    void sumAfterElement2(){
+        ArrayList<Integer> input = new ArrayList<>(Arrays.asList(7, 9, 5, 3, 1, 0));
+        ArrayList<Integer> result = new ArrayList<>();
+        Integer sum = 0;
+
+        for (int i = input.size()-1; i >= 0 ; i--) {
+            Integer n = input.get(i);
+            sum += n;
+            if(i > 0 && input.get(i-1) > sum)
+                result.add(input.get(i-1));
+        }
+
+        print(result.toString());
+    }
+
+
+
 }
